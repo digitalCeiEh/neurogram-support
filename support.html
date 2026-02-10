@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support — Neurogram</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+        :root {
+            --bg-deep: #06060c;
+            --bg-surface: #0e0e18;
+            --bg-card: rgba(255,255,255, 0.03);
+            --bg-card-hover: rgba(255,255,255, 0.055);
+            --border-subtle: rgba(255,255,255, 0.06);
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888a0;
+            --text-muted: #55556a;
+            --accent: #7aa2f7;
+            --accent-glow: rgba(122, 162, 247, 0.12);
+            --red-soft: #f7768e;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        /* subtle grid background */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 600px 400px at 50% 0%, rgba(122,162,247,0.04), transparent),
+                radial-gradient(circle 1px at center, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        /* Header */
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #bb9af7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brand-icon svg {
+            width: 18px;
+            height: 18px;
+        }
+        .brand-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 48px;
+        }
+
+        /* FAQ Section */
+        .section-label {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 20px;
+        }
+
+        .faq-item {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 14px;
+            margin-bottom: 12px;
+            overflow: hidden;
+            transition: background 0.2s ease, border-color 0.2s ease;
+        }
+        .faq-item:hover {
+            background: var(--bg-card-hover);
+            border-color: rgba(255,255,255,0.09);
+        }
+
+        .faq-question {
+            width: 100%;
+            background: none;
+            border: none;
+            padding: 20px 24px;
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
+            text-align: left;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+        }
+        .faq-question:focus { outline: none; }
+        .faq-question:focus-visible {
+            outline: 2px solid var(--accent);
+            outline-offset: -2px;
+            border-radius: 14px;
+        }
+
+        .faq-chevron {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            color: var(--text-muted);
+            transition: transform 0.25s ease, color 0.2s ease;
+        }
+        .faq-item.open .faq-chevron {
+            transform: rotate(180deg);
+            color: var(--accent);
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+        }
+        .faq-item.open .faq-answer {
+            max-height: 300px;
+        }
+        .faq-answer-inner {
+            padding: 0 24px 20px;
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Data info box */
+        .data-box {
+            background: var(--accent-glow);
+            border: 1px solid rgba(122,162,247,0.15);
+            border-radius: 14px;
+            padding: 24px;
+            margin: 40px 0;
+        }
+        .data-box-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .data-box p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            margin-top: 48px;
+            text-align: center;
+        }
+        .contact-section h2 {
+            font-size: 22px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+        .contact-section p {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: #fff;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            padding: 14px 32px;
+            border: none;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+            cursor: pointer;
+        }
+        .contact-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(122,162,247,0.25);
+        }
+        .contact-btn:active {
+            transform: translateY(0);
+        }
+        .contact-btn svg {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Links */
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-subtle);
+        }
+        .legal-links a {
+            font-size: 13px;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        .legal-links a:hover {
+            color: var(--text-secondary);
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* Animations */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .brand { animation: fadeUp 0.5s ease both; }
+        h1 { animation: fadeUp 0.5s ease 0.05s both; }
+        .subtitle { animation: fadeUp 0.5s ease 0.1s both; }
+        .faq-item:nth-child(1) { animation: fadeUp 0.4s ease 0.15s both; }
+        .faq-item:nth-child(2) { animation: fadeUp 0.4s ease 0.2s both; }
+        .faq-item:nth-child(3) { animation: fadeUp 0.4s ease 0.25s both; }
+        .faq-item:nth-child(4) { animation: fadeUp 0.4s ease 0.3s both; }
+        .faq-item:nth-child(5) { animation: fadeUp 0.4s ease 0.35s both; }
+        .data-box { animation: fadeUp 0.4s ease 0.4s both; }
+        .contact-section { animation: fadeUp 0.4s ease 0.45s both; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <!-- Brand -->
+    <div class="brand">
+        <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2a7 7 0 0 1 7 7c0 3-1.5 5-3 6.5V18a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.5C6.5 14 5 12 5 9a7 7 0 0 1 7-7z"/>
+                <line x1="10" y1="22" x2="14" y2="22"/>
+            </svg>
+        </div>
+        <span class="brand-name">Neurogram</span>
+    </div>
+
+    <!-- Header -->
+    <h1>Support</h1>
+    <p class="subtitle">We're here to help you get the most out of Neurogram.</p>
+
+    <!-- FAQ -->
+    <p class="section-label">Frequently Asked Questions</p>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How does Neurogram work?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                Write your thoughts — through text or voice — and the AI analyzes them to reveal hidden patterns, recurring themes, and insights about your inner world. The more you write, the deeper the AI understands you, building a unique cognitive map over time.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Are my thoughts private?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                Yes. Your thoughts are stored locally on your device and are only accessible to you. We don't have user accounts, we don't operate servers that store your data, and we can't read your entries. When you use AI features, your text is processed by OpenAI's API but is not used to train their models.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Can I export my data?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                Yes. Go to Settings → Export My Data to download all your thoughts, insights, AI memory, and conversations as a file. You own your data completely.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I unlock deeper insights?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                Write regularly. Neurogram progressively unlocks new insights as you share more thoughts — at 5, 10, 15, 20, 25, and 30 entries. Each milestone reveals deeper patterns and a more nuanced understanding of your mind.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>How do I delete all my data?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                Go to Settings and scroll to the bottom to find "Erase All Data." This permanently deletes all your thoughts, insights, AI memory, and conversations from your device. Alternatively, deleting the app removes all data since everything is stored locally.
+            </div>
+        </div>
+    </div>
+
+    <!-- Data Box -->
+    <div class="data-box">
+        <div class="data-box-title">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+            Your data, your device
+        </div>
+        <p>Neurogram doesn't require an account. Your thoughts live exclusively on your device. We have no servers, no databases, and no way to access your personal entries. When the AI processes your text, it goes through OpenAI's API which does not retain it for training.</p>
+    </div>
+
+    <!-- Contact -->
+    <div class="contact-section">
+        <h2>Need help?</h2>
+        <p>Can't find what you're looking for? Reach out and we'll get back to you as soon as possible.</p>
+        <a href="mailto:neurogram2026@gmail.com?subject=Neurogram%20Support" class="contact-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4 12 13 2 4"/></svg>
+            Contact Us
+        </a>
+    </div>
+
+    <!-- Legal links -->
+    <div class="legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+    </div>
+
+    <!-- Footer -->
+    <p class="footer">© 2026 Neurogram. All rights reserved.</p>
+
+</div>
+
+<script>
+    function toggleFaq(btn) {
+        const item = btn.closest('.faq-item');
+        const wasOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(el => {
+            el.classList.remove('open');
+        });
+
+        // Toggle clicked
+        if (!wasOpen) {
+            item.classList.add('open');
+        }
+    }
+</script>
+
+</body>
+</html>
