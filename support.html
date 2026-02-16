@@ -32,7 +32,6 @@
             min-height: 100vh;
         }
 
-        /* subtle grid background */
         body::before {
             content: '';
             position: fixed;
@@ -53,7 +52,6 @@
             padding: 48px 24px 80px;
         }
 
-        /* Header */
         .brand {
             display: flex;
             align-items: center;
@@ -69,10 +67,7 @@
             align-items: center;
             justify-content: center;
         }
-        .brand-icon svg {
-            width: 18px;
-            height: 18px;
-        }
+        .brand-icon svg { width: 18px; height: 18px; }
         .brand-name {
             font-size: 13px;
             font-weight: 600;
@@ -94,7 +89,6 @@
             margin-bottom: 48px;
         }
 
-        /* FAQ Section */
         .section-label {
             font-size: 11px;
             font-weight: 600;
@@ -167,7 +161,6 @@
             line-height: 1.7;
         }
 
-        /* Data info box */
         .data-box {
             background: var(--accent-glow);
             border: 1px solid rgba(122,162,247,0.15);
@@ -190,7 +183,6 @@
             line-height: 1.7;
         }
 
-        /* Contact Section */
         .contact-section {
             margin-top: 48px;
             text-align: center;
@@ -226,15 +218,9 @@
             transform: translateY(-1px);
             box-shadow: 0 8px 24px rgba(122,162,247,0.25);
         }
-        .contact-btn:active {
-            transform: translateY(0);
-        }
-        .contact-btn svg {
-            width: 16px;
-            height: 16px;
-        }
+        .contact-btn:active { transform: translateY(0); }
+        .contact-btn svg { width: 16px; height: 16px; }
 
-        /* Links */
         .legal-links {
             display: flex;
             justify-content: center;
@@ -249,11 +235,8 @@
             text-decoration: none;
             transition: color 0.2s ease;
         }
-        .legal-links a:hover {
-            color: var(--text-secondary);
-        }
+        .legal-links a:hover { color: var(--text-secondary); }
 
-        /* Footer */
         .footer {
             text-align: center;
             margin-top: 24px;
@@ -261,7 +244,6 @@
             color: var(--text-muted);
         }
 
-        /* Animations */
         @keyframes fadeUp {
             from { opacity: 0; transform: translateY(16px); }
             to { opacity: 1; transform: translateY(0); }
@@ -274,15 +256,15 @@
         .faq-item:nth-child(3) { animation: fadeUp 0.4s ease 0.25s both; }
         .faq-item:nth-child(4) { animation: fadeUp 0.4s ease 0.3s both; }
         .faq-item:nth-child(5) { animation: fadeUp 0.4s ease 0.35s both; }
-        .data-box { animation: fadeUp 0.4s ease 0.4s both; }
-        .contact-section { animation: fadeUp 0.4s ease 0.45s both; }
+        .faq-item:nth-child(6) { animation: fadeUp 0.4s ease 0.4s both; }
+        .data-box { animation: fadeUp 0.4s ease 0.45s both; }
+        .contact-section { animation: fadeUp 0.4s ease 0.5s both; }
     </style>
 </head>
 <body>
 
 <div class="container">
 
-    <!-- Brand -->
     <div class="brand">
         <div class="brand-icon">
             <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
@@ -293,11 +275,9 @@
         <span class="brand-name">Neurogram</span>
     </div>
 
-    <!-- Header -->
     <h1>Support</h1>
     <p class="subtitle">We're here to help you get the most out of Neurogram.</p>
 
-    <!-- FAQ -->
     <p class="section-label">Frequently Asked Questions</p>
 
     <div class="faq-item">
@@ -307,7 +287,7 @@
         </button>
         <div class="faq-answer">
             <div class="faq-answer-inner">
-                Speak your thoughts out loud — Neurogram listens and distills what you said into its emotional essence. Over time, the AI builds a memory of who you are: your patterns, the people you mention, the things you care about. You can revisit your thoughts and see what the AI has observed about you.
+                Speak your thoughts out loud — Neurogram's AI companion, Neu, listens and responds with an observation and a question designed to help you see your thoughts from a new angle. You get up to 3 exchanges per day. Over time, Neu builds a memory of your patterns and the things you care about, making each interaction more personal and insightful.
             </div>
         </div>
     </div>
@@ -319,19 +299,31 @@
         </button>
         <div class="faq-answer">
             <div class="faq-answer-inner">
-                Yes. Your thoughts are stored locally on your device and are only accessible to you. We don't have user accounts, we don't operate servers that store your data, and we can't read your entries. When you use AI features, your text is processed by OpenAI's API but is not used to train their models.
+                Yes. Your voice transcriptions and all personal data are stored locally on your device and are only accessible to you. We don't have user accounts, we don't operate servers that store your data, and we can't read your entries. When your text is processed by OpenAI's API, it is not used to train their models.
             </div>
         </div>
     </div>
 
     <div class="faq-item">
         <button class="faq-question" onclick="toggleFaq(this)">
-            <span>What can I see in the app?</span>
+            <span>What can I see in the Observatory?</span>
             <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
         </button>
         <div class="faq-answer">
             <div class="faq-answer-inner">
-                Besides speaking your thoughts, you can explore everything the AI has learned about you — your memory, the patterns it has noticed, and all your past thoughts with their distillations. The more you share, the deeper and more accurate these observations become.
+                The Observatory is where you can explore everything Neu has learned about you — your patterns, recurring themes, and all your past conversations with their observations. The more you share, the deeper and more accurate these insights become.
+            </div>
+        </div>
+    </div>
+
+    <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+            <span>Why only 3 exchanges per day?</span>
+            <svg class="faq-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="faq-answer">
+            <div class="faq-answer-inner">
+                The limit is intentional. Neurogram is designed for quality over quantity — a few meaningful moments of introspection are more valuable than endless chatting. The constraint encourages you to bring what truly matters to each exchange.
             </div>
         </div>
     </div>
@@ -343,7 +335,7 @@
         </button>
         <div class="faq-answer">
             <div class="faq-answer-inner">
-                All your data is stored locally on your device. Deleting the app permanently removes everything — your thoughts, the AI's memory, and all observations. There is nothing stored on our servers to delete.
+                All your data is stored locally on your device. You can clear Neu's memory from Settings, or erase all data entirely. Deleting the app also permanently removes everything — there is nothing stored on our servers to delete.
             </div>
         </div>
     </div>
@@ -360,16 +352,14 @@
         </div>
     </div>
 
-    <!-- Data Box -->
     <div class="data-box">
         <div class="data-box-title">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
             Your data, your device
         </div>
-        <p>Neurogram doesn't require an account. Your thoughts live exclusively on your device. We have no servers, no databases, and no way to access your personal entries. When the AI processes your text, it goes through OpenAI's API which does not retain it for training.</p>
+        <p>Neurogram doesn't require an account. Your thoughts live exclusively on your device. We have no servers, no databases, and no way to access your personal entries. When your text is processed by AI, it goes through OpenAI's API which does not retain it for training.</p>
     </div>
 
-    <!-- Contact -->
     <div class="contact-section">
         <h2>Need help?</h2>
         <p>Can't find what you're looking for? Reach out and we'll get back to you as soon as possible.</p>
@@ -379,13 +369,11 @@
         </a>
     </div>
 
-    <!-- Legal links -->
     <div class="legal-links">
         <a href="privacy.html">Privacy Policy</a>
         <a href="terms-of-service.html">Terms of Service</a>
     </div>
 
-    <!-- Footer -->
     <p class="footer">© 2026 Neurogram. All rights reserved.</p>
 
 </div>
@@ -394,13 +382,9 @@
     function toggleFaq(btn) {
         const item = btn.closest('.faq-item');
         const wasOpen = item.classList.contains('open');
-
-        // Close all
         document.querySelectorAll('.faq-item.open').forEach(el => {
             el.classList.remove('open');
         });
-
-        // Toggle clicked
         if (!wasOpen) {
             item.classList.add('open');
         }
