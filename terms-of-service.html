@@ -5,108 +5,181 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service — Neurogram</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', sans-serif;
-            background: #0a0a0f;
-            color: #e0e0e8;
-            line-height: 1.7;
-            padding: 24px 20px 60px;
-            max-width: 680px;
-            margin: 0 auto;
-            -webkit-font-smoothing: antialiased;
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700&display=swap');
+
+        :root {
+            --bg-deep: #06060c;
+            --bg-surface: #0e0e18;
+            --text-primary: #e8e8f0;
+            --text-secondary: #8888a0;
+            --text-muted: #55556a;
+            --accent: #7aa2f7;
+            --border-subtle: rgba(255,255,255, 0.06);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-deep);
+            color: var(--text-primary);
+            line-height: 1.75;
+            -webkit-font-smoothing: antialiased;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                radial-gradient(ellipse 600px 400px at 50% 0%, rgba(122,162,247,0.04), transparent),
+                radial-gradient(circle 1px at center, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 100% 100%, 32px 32px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            position: relative;
+            z-index: 1;
+            max-width: 620px;
+            margin: 0 auto;
+            padding: 48px 24px 80px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 48px;
+        }
+        .brand-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--accent), #bb9af7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .brand-icon svg { width: 18px; height: 18px; }
+        .brand-name {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 2.5px;
+            text-transform: uppercase;
+            color: var(--text-secondary);
+        }
+
         h1 {
-            font-size: 28px;
+            font-size: 36px;
             font-weight: 700;
-            color: #ffffff;
-            margin-bottom: 8px;
-            letter-spacing: -0.3px;
+            color: #fff;
+            letter-spacing: -0.5px;
+            margin-bottom: 6px;
         }
         .last-updated {
             font-size: 13px;
-            color: #6e6e80;
-            margin-bottom: 40px;
+            color: var(--text-muted);
+            margin-bottom: 12px;
         }
+        .tldr {
+            font-size: 15px;
+            color: var(--text-secondary);
+            font-style: italic;
+            margin-bottom: 48px;
+            padding: 16px 20px;
+            background: rgba(122,162,247,0.06);
+            border-left: 3px solid var(--accent);
+            border-radius: 0 10px 10px 0;
+        }
+
         h2 {
             font-size: 18px;
-            font-weight: 600;
-            color: #ffffff;
+            font-weight: 700;
+            color: #fff;
             margin-top: 36px;
             margin-bottom: 12px;
         }
-        p {
-            font-size: 15px;
-            color: #b0b0c0;
-            margin-bottom: 16px;
+        p, li {
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
         }
         ul {
             padding-left: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
-        li {
-            font-size: 15px;
-            color: #b0b0c0;
-            margin-bottom: 8px;
-        }
+        li { margin-bottom: 6px; }
+
         a {
-            color: #7aa2f7;
+            color: var(--accent);
             text-decoration: none;
         }
         a:hover { text-decoration: underline; }
-        .highlight-box {
-            background: rgba(122, 162, 247, 0.08);
-            border-left: 3px solid #7aa2f7;
-            padding: 16px 20px;
-            border-radius: 0 8px 8px 0;
-            margin: 20px 0;
+
+        .legal-links {
+            display: flex;
+            justify-content: center;
+            gap: 24px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid var(--border-subtle);
         }
-        .highlight-box p {
-            margin-bottom: 0;
-            color: #c0c8e0;
+        .legal-links a {
+            font-size: 13px;
+            color: var(--text-muted);
         }
         .footer {
-            margin-top: 48px;
-            padding-top: 24px;
-            border-top: 1px solid rgba(255,255,255,0.06);
-            font-size: 13px;
-            color: #6e6e80;
+            text-align: center;
+            margin-top: 24px;
+            font-size: 12px;
+            color: var(--text-muted);
         }
     </style>
 </head>
 <body>
+<div class="container">
+
+    <div class="brand">
+        <div class="brand-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round">
+                <path d="M12 2a7 7 0 0 1 7 7c0 3-1.5 5-3 6.5V18a2 2 0 0 1-2 2h-4a2 2 0 0 1-2-2v-2.5C6.5 14 5 12 5 9a7 7 0 0 1 7-7z"/>
+                <line x1="10" y1="22" x2="14" y2="22"/>
+            </svg>
+        </div>
+        <span class="brand-name">Neurogram</span>
+    </div>
 
     <h1>Terms of Service</h1>
-    <p class="last-updated">Last updated: February 10, 2026</p>
-
-    <div class="highlight-box">
-        <p><strong>In short:</strong> Neurogram is a personal AI journaling tool. Use it responsibly. AI-generated insights are not professional advice. Your data is yours — it lives on your device and you can delete it anytime.</p>
-    </div>
+    <p class="last-updated">Last updated: February 16, 2026</p>
+    <p class="tldr">In short: Neurogram is a personal AI-powered voice introspection tool. Use it responsibly. AI-generated observations are not professional advice. Your data lives on your device and you can delete it anytime.</p>
 
     <h2>1. Acceptance of Terms</h2>
     <p>By downloading, installing, or using Neurogram ("the App"), you agree to be bound by these Terms of Service ("Terms"). If you do not agree to these Terms, do not use the App.</p>
 
     <h2>2. Description of Service</h2>
-    <p>Neurogram is a personal journaling and self-reflection application that uses artificial intelligence to help you organize your thoughts, generate insights, and track patterns in your thinking over time. The App processes your input using OpenAI's API to provide AI-powered features.</p>
+    <p>Neurogram is a voice-based personal introspection application powered by artificial intelligence. You speak your thoughts out loud, and an AI companion called "Neu" responds with observations and questions designed to help you develop greater self-awareness. The App processes your voice input using OpenAI's APIs (Whisper for speech-to-text and GPT for generating responses) through a secure proxy infrastructure.</p>
 
     <h2>3. Eligibility</h2>
-    <p>You must be at least 13 years of age to use Neurogram. If you are under 18, you should review these Terms with a parent or guardian.</p>
+    <p>You must be at least 18 years of age to use Neurogram. This App is designed for adults seeking personal growth and self-awareness. If you are under 18, you may not use the App.</p>
 
-    <h2>4. Your Data</h2>
-    <p>Neurogram stores your data locally on your device. We do not create user accounts and do not store your personal data on our servers. You are solely responsible for maintaining the security of your device and backing up your data.</p>
-    <p>When you use AI features, your text is sent to OpenAI's API for processing. Please review our <a href="privacy.html">Privacy Policy</a> for complete details on how your data is handled.</p>
+    <h2>4. Voice Input & Your Data</h2>
+    <p>Neurogram records your voice when you interact with the App. Your audio is converted to text using OpenAI's Whisper API and then processed by an AI model to generate a response. All your data — including voice transcriptions, AI observations, and AI memory — is stored locally on your device. We do not create user accounts and do not store your personal data on our servers.</p>
+    <p>When you use AI features, your text is routed through our secure infrastructure (Cloudflare) and processed by OpenAI's API. Please review our <a href="privacy.html">Privacy Policy</a> for complete details on how your data is handled.</p>
 
     <h2>5. AI-Generated Content Disclaimer</h2>
-    <p>Neurogram uses artificial intelligence to generate insights, analysis, and conversational responses about your thoughts and experiences. It is important to understand that:</p>
+    <p>Neurogram uses artificial intelligence to generate observations, questions, and insights about your thoughts and experiences. It is important to understand that:</p>
     <ul>
-        <li>AI-generated content is <strong>not professional advice</strong> — it is not a substitute for therapy, counseling, medical advice, or any professional service</li>
+        <li>AI-generated content is not professional advice — it is not a substitute for therapy, counseling, medical advice, or any professional service</li>
         <li>AI responses may be inaccurate, incomplete, or inappropriate in some contexts</li>
         <li>You should not rely solely on Neurogram for decisions related to your mental health, medical conditions, legal matters, or financial decisions</li>
         <li>If you are experiencing a mental health crisis, please contact a licensed professional or your local emergency services</li>
     </ul>
 
     <h2>6. Acceptable Use</h2>
-    <p>You agree to use Neurogram for its intended purpose as a personal journaling and self-reflection tool. You agree not to:</p>
+    <p>You agree to use Neurogram for its intended purpose as a personal voice introspection tool. You agree not to:</p>
     <ul>
         <li>Attempt to reverse-engineer, decompile, or extract the source code of the App</li>
         <li>Use the App to generate content that is illegal, harmful, or violates the rights of others</li>
@@ -115,22 +188,22 @@
     </ul>
 
     <h2>7. Subscriptions & Purchases</h2>
-    <p>Neurogram may offer premium features through in-app subscriptions or one-time purchases. All purchases are processed by Apple through the App Store and are subject to Apple's terms and conditions.</p>
+    <p>Neurogram offers premium features through in-app subscriptions. All purchases are processed by Apple through the App Store and are subject to Apple's terms and conditions.</p>
     <ul>
         <li>Subscription prices are displayed in the App before purchase</li>
         <li>Subscriptions automatically renew unless cancelled at least 24 hours before the end of the current period</li>
-        <li>You can manage and cancel subscriptions through your Apple ID settings</li>
+        <li>You can manage and cancel subscriptions through your Apple ID settings (Settings → your name → Subscriptions)</li>
         <li>Refunds are handled by Apple in accordance with their refund policy</li>
     </ul>
 
     <h2>8. Intellectual Property</h2>
-    <p>The Neurogram app, including its design, code, AI prompts, and branding, is the intellectual property of its developer. Your personal content (thoughts, entries, conversations) remains entirely yours.</p>
+    <p>The Neurogram app, including its design, code, AI prompts, and branding, is the intellectual property of its developer. Your personal content (voice transcriptions, entries, conversations) remains entirely yours.</p>
 
     <h2>9. Limitation of Liability</h2>
     <p>To the maximum extent permitted by applicable law, Neurogram and its developer shall not be liable for any indirect, incidental, special, consequential, or punitive damages, including but not limited to loss of data, loss of profits, or personal harm arising from:</p>
     <ul>
         <li>Your use of or inability to use the App</li>
-        <li>Any AI-generated content or insights</li>
+        <li>Any AI-generated content, observations, or insights</li>
         <li>Loss of locally stored data due to device failure, app deletion, or any other cause</li>
         <li>Unauthorized access to your device</li>
     </ul>
@@ -142,15 +215,17 @@
     <p>We reserve the right to modify these Terms at any time. Changes will be reflected in the "Last updated" date at the top of this page. Your continued use of the App after changes constitutes acceptance of the modified Terms.</p>
 
     <h2>12. Governing Law</h2>
-    <p>These Terms are governed by the laws of Italy. Any disputes arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the courts of Italy.</p>
+    <p>These Terms are governed by the laws of Switzerland. Any disputes arising from these Terms or your use of the App shall be subject to the exclusive jurisdiction of the courts of Switzerland.</p>
 
     <h2>13. Contact</h2>
-    <p>If you have any questions about these Terms, please contact us:</p>
-    <p><a href="mailto:neurogram2026@gmail.com">neurogram2026@gmail.com</a></p>
+    <p>If you have any questions about these Terms, please contact us at <a href="mailto:neurogram2026@gmail.com">neurogram2026@gmail.com</a>.</p>
 
-    <div class="footer">
-        <p>© 2026 Neurogram. All rights reserved.</p>
+    <div class="legal-links">
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="support.html">Support</a>
     </div>
+    <p class="footer">© 2026 Neurogram. All rights reserved.</p>
 
+</div>
 </body>
 </html>
