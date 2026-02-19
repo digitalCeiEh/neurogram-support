@@ -153,7 +153,7 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: February 16, 2026</p>
+    <p class="last-updated">Last updated: February 19, 2026</p>
     <p class="tldr">In short: Your thoughts are stored on your device. When you speak to Neu, your voice is transcribed and your text is routed through our secure infrastructure (Cloudflare) and processed by OpenAI's API. Neither Cloudflare nor OpenAI retains your data or uses it to train their models. We can't read your entries.</p>
 
     <h2>1. Who We Are</h2>
@@ -180,7 +180,7 @@
     </ul>
 
     <h2>3. Voice Input & Audio Processing</h2>
-    <p>Neurogram records your voice when you interact with the App. Your audio is routed through our secure proxy infrastructure hosted on Cloudflare and processed by OpenAI's Whisper API to convert speech to text. Important details:</p>
+    <p>Neurogram records your voice when you interact with the App. Your audio is routed through our secure proxy infrastructure hosted on Cloudflare and sent to OpenAI's Whisper API to convert speech to text. Important details:</p>
     <ul>
         <li>The audio is used solely for transcription and is not stored by us, Cloudflare, or OpenAI</li>
         <li>Audio data is not used for model training by any party</li>
@@ -189,14 +189,20 @@
     </ul>
 
     <h2>4. How AI Processing Works</h2>
-    <p>After your voice is transcribed, the text is sent through our secure proxy infrastructure (Cloudflare) to OpenAI's API to generate Neu's response. This is necessary to provide personalized observations and questions.</p>
+    <p>After your voice is transcribed, the following data is sent through our secure proxy infrastructure (Cloudflare) to OpenAI's API to generate Neu's response:</p>
+    <ul>
+        <li>Your transcribed text from the current session</li>
+        <li>Relevant past session summaries (for conversational context)</li>
+        <li>Your AI memory data (to enable personalized observations and questions)</li>
+    </ul>
+    <p>No device identifiers, personal metadata, or information beyond what is listed above is sent.</p>
     <p>Important details about this processing:</p>
     <ul>
         <li>Your data passes through Cloudflare's network in transit but is not stored or logged by Cloudflare</li>
         <li>Data sent to OpenAI's API is not used to train their models, in accordance with OpenAI's API data usage policy</li>
         <li>OpenAI may temporarily process the data to generate a response, after which it is not retained for training purposes</li>
-        <li>We send only the text needed to generate a response — no device identifiers or personal metadata</li>
-        <li>You can review OpenAI's API data usage policy at <a href="https://openai.com/policies/api-data-usage-policies" target="_blank">openai.com/policies/api-data-usage-policies</a></li>
+        <li>OpenAI processes data under their <a href="https://openai.com/policies/api-data-usage-policies" target="_blank">API Data Usage Policy</a> and <a href="https://openai.com/enterprise-privacy" target="_blank">Enterprise Privacy commitments</a>, which provide protections for user data consistent with or exceeding those described in this Privacy Policy. OpenAI does not retain API inputs or outputs for training purposes and maintains industry-standard security practices</li>
+        <li>You can review OpenAI's full privacy policy at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a></li>
     </ul>
 
     <h2>5. Data Storage & Security</h2>
@@ -226,11 +232,12 @@
     <h2>9. Third-Party Services</h2>
     <p>Neurogram uses the following third-party services:</p>
     <ul>
-        <li><strong>OpenAI API</strong> — for AI text generation and voice transcription. Their privacy policy is available at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a></li>
+        <li><strong>OpenAI API</strong> — for AI text generation and voice transcription. OpenAI processes data in accordance with their <a href="https://openai.com/policies/api-data-usage-policies" target="_blank">API Data Usage Policy</a>, which ensures that API inputs and outputs are not used for model training. Their privacy policy is available at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a></li>
         <li><strong>Cloudflare</strong> — for secure request routing and infrastructure protection. Your data passes through Cloudflare's network in transit but is not stored or logged. Their privacy policy is available at <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">cloudflare.com/privacypolicy</a></li>
         <li><strong>RevenueCat</strong> — for subscription management. RevenueCat processes your purchase status through Apple but does not have access to your voice transcriptions, entries, or AI data. Their privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a></li>
     </ul>
     <p>We do not use advertising networks, behavioral analytics services, crash reporting tools, or any other third-party SDKs that collect user data.</p>
+    <p>We confirm that all third-party services used by Neurogram provide data protections consistent with or exceeding those described in this Privacy Policy.</p>
 
     <h2>10. Changes to This Policy</h2>
     <p>We may update this Privacy Policy from time to time. Any changes will be reflected in the "Last updated" date at the top of this page. We encourage you to review this policy periodically.</p>
