@@ -153,7 +153,7 @@
     </div>
 
     <h1>Privacy Policy</h1>
-    <p class="last-updated">Last updated: February 19, 2026</p>
+    <p class="last-updated">Last updated: March 23, 2026</p>
     <p class="tldr">In short: Your thoughts are stored on your device. When you speak to Neu, your voice is transcribed and your text is routed through our secure infrastructure (Cloudflare) and processed by OpenAI's API. Neither Cloudflare nor OpenAI retains your data or uses it to train their models. We can't read your entries.</p>
 
     <h2>1. Who We Are</h2>
@@ -164,10 +164,11 @@
     <p>Neurogram is designed with a privacy-first architecture. Here is what we collect and what we don't:</p>
     <p><strong>Data stored locally on your device only:</strong></p>
     <ul>
-        <li>Your voice transcriptions</li>
-        <li>AI-generated observations and questions</li>
-        <li>Conversation history with Neu</li>
-        <li>AI memory (patterns, insights, and observations Neu has built about you)</li>
+        <li>Your voice transcriptions (including original transcripts)</li>
+        <li>AI-generated deposits (titles, synthesis, insights, tags, and type-specific analysis)</li>
+        <li>Replay narratives generated from your deposits</li>
+        <li>Weekly reflections</li>
+        <li>Conversation history with Neu (Ask Neu)</li>
         <li>App preferences and settings</li>
     </ul>
     <p><strong>Data we do NOT collect:</strong></p>
@@ -189,11 +190,12 @@
     </ul>
 
     <h2>4. How AI Processing Works</h2>
-    <p>After your voice is transcribed, the following data is sent through our secure proxy infrastructure (Cloudflare) to OpenAI's API to generate Neu's response:</p>
+    <p>After your voice is transcribed, data is sent through our secure proxy infrastructure (Cloudflare) to OpenAI's API for the following purposes:</p>
     <ul>
-        <li>Your transcribed text from the current session</li>
-        <li>Relevant past session summaries (for conversational context)</li>
-        <li>Your AI memory data (to enable personalized observations and questions)</li>
+        <li><strong>Deposit processing:</strong> Your transcribed text and recent deposit summaries are sent to generate a structured deposit — including a title, synthesis, tags, and type-specific insights (such as emotion analysis or idea articulation). This happens each time you create a new deposit.</li>
+        <li><strong>Replay generation:</strong> When you use the Replay feature, your stored transcripts and deposit data for the selected time period are sent to generate a curated narrative of your most significant moments. Neu selects key phrases from your original words and weaves a connecting thread between them.</li>
+        <li><strong>Weekly reflections:</strong> Your deposits from the current week are sent to generate a weekly synthesis, including an insight, a direction, and a question.</li>
+        <li><strong>Ask Neu:</strong> When you ask Neu a question, your question and relevant deposit data are sent to generate a personalized response grounded in your collected thoughts.</li>
     </ul>
     <p>No device identifiers, personal metadata, or information beyond what is listed above is sent.</p>
     <p>Important details about this processing:</p>
@@ -206,7 +208,7 @@
     </ul>
 
     <h2>5. Data Storage & Security</h2>
-    <p>All your personal data (voice transcriptions, observations, AI memory, conversation history) is stored exclusively on your device's local storage. We do not operate servers that store user content. All data transmitted between the App and our infrastructure is encrypted using TLS.</p>
+    <p>All your personal data (voice transcriptions, deposits, replay narratives, weekly reflections, conversation history) is stored exclusively on your device's local storage. We do not operate servers that store user content. All data transmitted between the App and our infrastructure is encrypted using TLS.</p>
     <p>This means:</p>
     <ul>
         <li>If you delete the app, all your data is permanently deleted</li>
@@ -215,14 +217,12 @@
     </ul>
 
     <h2>6. Subscriptions & Payments</h2>
-    <p>Neurogram uses RevenueCat to manage subscriptions. When you subscribe, RevenueCat processes your purchase status through Apple's App Store. RevenueCat does not have access to your voice transcriptions, AI memory, conversation history, or any personal content within the App. Payment information is handled entirely by Apple — we never see your payment details.</p>
+    <p>Neurogram uses RevenueCat to manage subscriptions. When you subscribe, RevenueCat processes your purchase status through Apple's App Store. RevenueCat does not have access to your voice transcriptions, deposits, conversation history, or any personal content within the App. Payment information is handled entirely by Apple — we never see your payment details.</p>
 
     <h2>7. Your Rights & Control</h2>
     <p>You have full control over your data at all times:</p>
     <ul>
-        <li><strong>View your data:</strong> All your transcriptions and AI memory are visible directly in the App</li>
-        <li><strong>Export your data:</strong> Use the "Export My Data" feature in Settings to download your data</li>
-        <li><strong>Delete AI memory:</strong> Use "Clear Memory" in Settings to erase what Neu has learned about you</li>
+        <li><strong>View your data:</strong> All your deposits, transcriptions, and reflections are visible directly in the App</li>
         <li><strong>Delete all data:</strong> Use "Erase All Data" in Settings to permanently remove everything, or simply delete the App</li>
     </ul>
 
@@ -232,9 +232,9 @@
     <h2>9. Third-Party Services</h2>
     <p>Neurogram uses the following third-party services:</p>
     <ul>
-        <li><strong>OpenAI API</strong> — for AI text generation and voice transcription. OpenAI processes data in accordance with their <a href="https://openai.com/policies/api-data-usage-policies" target="_blank">API Data Usage Policy</a>, which ensures that API inputs and outputs are not used for model training. Their privacy policy is available at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a></li>
+        <li><strong>OpenAI API</strong> — for AI text generation, voice transcription, deposit processing, replay generation, and weekly reflections. OpenAI processes data in accordance with their <a href="https://openai.com/policies/api-data-usage-policies" target="_blank">API Data Usage Policy</a>, which ensures that API inputs and outputs are not used for model training. Their privacy policy is available at <a href="https://openai.com/policies/privacy-policy" target="_blank">openai.com/policies/privacy-policy</a></li>
         <li><strong>Cloudflare</strong> — for secure request routing and infrastructure protection. Your data passes through Cloudflare's network in transit but is not stored or logged. Their privacy policy is available at <a href="https://www.cloudflare.com/privacypolicy/" target="_blank">cloudflare.com/privacypolicy</a></li>
-        <li><strong>RevenueCat</strong> — for subscription management. RevenueCat processes your purchase status through Apple but does not have access to your voice transcriptions, entries, or AI data. Their privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a></li>
+        <li><strong>RevenueCat</strong> — for subscription management. RevenueCat processes your purchase status through Apple but does not have access to your voice transcriptions, deposits, or AI data. Their privacy policy is available at <a href="https://www.revenuecat.com/privacy" target="_blank">revenuecat.com/privacy</a></li>
     </ul>
     <p>We do not use advertising networks, behavioral analytics services, crash reporting tools, or any other third-party SDKs that collect user data.</p>
     <p>We confirm that all third-party services used by Neurogram provide data protections consistent with or exceeding those described in this Privacy Policy.</p>
